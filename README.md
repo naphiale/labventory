@@ -108,5 +108,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Contact
 
 For questions, suggestions, or support, please contact us at [support@labventory.com](mailto:support@labventory.com).
-
----

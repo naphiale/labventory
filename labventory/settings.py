@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-y@l^@o8cr9ddijk*ded_!u=b)q#gpvbmh@s2macc623ng*ss2a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "nafia-levana-labventory.pbp.cs.ui.ac.id"]
 
 # Application definition
 
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'main',
 ]
 
 MIDDLEWARE = [
