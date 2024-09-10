@@ -11,14 +11,8 @@
         {% for product in products %}
         <li>
             <h2>{{ product.name }}</h2>
-            <p>Price: Rp {{ product.price|intcomma }}</p>
+            <p>Price: Rp {{ product.price }}</p>
             <p>Description: {{ product.description }}</p>
-            <p>Rating: 
-                {% for star in 0|to:product.rating %}
-                    ⭐
-                {% endfor %}
-                ({{ product.rating }}/5)
-            </p>
         </li>
         {% endfor %}
     </ul>
