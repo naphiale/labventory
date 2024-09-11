@@ -117,8 +117,8 @@ Git berfungsi sebagai sistem version control yang membantu:
 ## 4. Mengapa Django Cocok untuk Pembelajaran?
 
 Django dipilih sebagai framework pembelajaran pengembangan perangkat lunak karena:
-- *Django sudah menyediakan banyak fitur bawaan seperti autentikasi, manajemen admin, dan ORM sehingga developer dapat fokus pada pengembangan logika bisnis.
-- *Memisahkan logika data, tampilan, dan kontrol sehingga mempermudah pemahaman dan pengelolaan kode.
+- Django sudah menyediakan banyak fitur bawaan seperti autentikasi, manajemen admin, dan ORM sehingga developer dapat fokus pada pengembangan logika bisnis.
+- Memisahkan logika data, tampilan, dan kontrol sehingga mempermudah pemahaman dan pengelolaan kode.
 - Django memiliki dokumentasi yang sangat lengkap dan komunitas yang besar.
 
 ---
