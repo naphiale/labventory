@@ -8,24 +8,13 @@
 <body>
     <h1>Product List</h1>
     <ul>
+        {% for product in products %}
         <li>
-            <h2>Microscope X200</h2>
-            <p>Price: Rp 2.000.000</p>
-            <p>Description: High-quality microscope suitable for research and education purposes.</p>
-            <p>Rating: ⭐⭐⭐⭐☆ (4/5)</p>
+            <h2>{{ product.name }}</h2>
+            <p>Price: Rp {{ product.price }}</p>
+            <p>Description: {{ product.description }}</p>
         </li>
-        <li>
-            <h2>Centrifuge 3000 RPM</h2>
-            <p>Price: Rp 5.000.000</p>
-            <p>Description: High-speed centrifuge for separating fluids and gases based on density.</p>
-            <p>Rating: ⭐⭐⭐⭐⭐ (5/5)</p>
-        </li>
-        <li>
-            <h2>Autoclave Sterilizer</h2>
-            <p>Price: Rp 7.000.000</p>
-            <p>Description: Compact autoclave for sterilization in laboratories.</p>
-            <p>Rating: ⭐⭐⭐⭐☆ (4/5)</p>
-        </li>
+        {% endfor %}
     </ul>
 </body>
 </html>

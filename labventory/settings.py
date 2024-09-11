@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "nafia-levana-labventory.pbp.cs.ui.ac.id"]
 
-# Application definition
+# Application defi
 
 INSTALLED_APPS = [
     'django.contrib.admin',

@@ -12,95 +12,6 @@
 - **Order Tracking**: Track your orders from purchase to delivery in real-time.
 - **Customer Support**: Dedicated customer support to assist with inquiries, warranties, and product issues.
 
-## Tech Stack
-
-- **Frontend**: React.js or Vue.js for a dynamic and responsive user interface.
-- **Backend**: Node.js with Express.js for handling server-side logic and APIs.
-- **Database**: MongoDB or PostgreSQL for secure and scalable data storage.
-- **Authentication**: JWT (JSON Web Tokens) for user authentication and session management.
-- **Payment Integration**: Stripe or PayPal for secure and smooth payment processing.
-- **Containerization**: Docker for deploying and managing the application in containers.
-
-## Getting Started
-
-### Prerequisites
-
-To run the project locally, ensure that you have the following installed:
-
-- [Node.js](https://nodejs.org/)
-- [MongoDB](https://www.mongodb.com/) or [PostgreSQL](https://www.postgresql.org/)
-- [Docker](https://www.docker.com/) (Optional, for containerization)
-
-### Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your-username/labventory.git
-   cd labventory
-   ```
-
-2. Install the required dependencies:
-
-   ```bash
-   npm install
-   ```
-
-3. Set up your environment variables:
-
-   Create a `.env` file in the root directory and add the following variables:
-
-   ```bash
-   PORT=5000
-   DATABASE_URL=<your-database-url>
-   STRIPE_API_KEY=<your-stripe-api-key>
-   JWT_SECRET=<your-jwt-secret>
-   ```
-
-4. Start the development server:
-
-   ```bash
-   npm run dev
-   ```
-
-   The app will be running at `http://localhost:5000`.
-
-### Running Tests
-
-To run tests, execute the following command:
-
-```bash
-npm run test
-```
-
-## Deployment
-
-To deploy **Labventory** using Docker:
-
-1. Build the Docker image:
-
-   ```bash
-   docker build -t labventory .
-   ```
-
-2. Run the Docker container:
-
-   ```bash
-   docker run -p 5000:5000 labventory
-   ```
-
-For deployment to cloud providers such as AWS, Heroku, or Google Cloud, refer to their respective documentation.
-
-## Contributing
-
-We welcome contributions to enhance **Labventory**! To contribute:
-
-1. Fork the repository.
-2. Create a new branch: `git checkout -b feature/your-feature`.
-3. Make your changes and commit them: `git commit -m 'Add your feature'`.
-4. Push to your branch: `git push origin feature/your-feature`.
-5. Submit a pull request.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -108,3 +19,111 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Contact
 
 For questions, suggestions, or support, please contact us at [support@labventory.com](mailto:support@labventory.com).
+
+---
+
+# Menjawab Pertanyaan
+
+## 1. Langkah-Langkah Implementasi
+
+Berikut adalah langkah-langkah untuk mengimplementasikan aplikasi web berbasis Django:
+
+### Langkah 1: Membuat Proyek Django
+Jalankan perintah berikut:
+```bash
+django-admin startproject Labventory
+```
+Perintah ini akan membuat struktur dasar dari proyek Django.
+
+### Langkah 2: Membuat Aplikasi Django
+Buat aplikasi baru di dalam proyek dengan perintah:
+```bash
+python manage.py startapp labventory
+```
+
+### Langkah 3: Menentukan Model di `models.py`
+Buat model yang sesuai dengan struktur tabel database. Sebagai contoh, berikut adalah model untuk `Product`:
+```python
+from django.db import models
+
+class Product(models.Model):
+    name = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    description = models.TextField()
+```
+
+### Langkah 4: Menjalankan Migrasi
+Untuk mengupdate skema database:
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+### Langkah 5: Menentukan URL di `urls.py`
+Hubungkan pola URL ke views.
+```python
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('products/', views.show_main, name='show_main'),
+]
+```
+
+### Langkah 6: Membuat Views di `views.py`
+Buat views untuk menangani request dan me-render template.
+```python
+from django.shortcuts import render
+
+def show_main(request):
+    products = [
+        {'name': 'Microscope X200', 'price': 2000000, 'description': 'Mikroskop berkualitas tinggi untuk penelitian dan pendidikan.'},
+        {'name': 'Centrifuge 3000 RPM', 'price': 5000000, 'description': 'Centrifuge berkecepatan tinggi untuk memisahkan cairan.'},
+        {'name': 'Autoclave Sterilizer', 'price': 7000000, 'description': 'Autoclave kompak untuk sterilisasi di laboratorium.'},
+    ]
+    return render(request, "main.html", {'products': products})
+```
+
+### Langkah 7: Menyusun Template HTML
+Buat file `main.html` di dalam direktori template untuk menampilkan data dari views.
+
+---
+
+## 2. Alur Request-Response di Django
+
+Berikut adalah alur permintaan (request) dari klien hingga mendapatkan respon dari server Django:
+
+
+
+### Penjelasan Alur:
+- **urls.py**: Memetakan URL yang diminta oleh klien ke fungsi yang sesuai di `views.py`.
+- **views.py**: Fungsi yang menangani logika bisnis dan pengambilan data dari model, kemudian me-render template HTML.
+- **models.py**: Berfungsi untuk menghubungkan Django dengan database, mengelola data yang dibutuhkan oleh views.
+- **HTML (Template)**: Menampilkan data yang telah diproses oleh views kepada klien.
+
+---
+
+## 3. Fungsi Git dalam Pengembangan Perangkat Lunak
+
+Git berfungsi sebagai sistem version control yang membantu:
+- Melacak perubahan dalam kode selama pengembangan.
+- Memfasilitasi kolaborasi antara banyak pengembang.
+- Mengembalikan versi sebelumnya dari kode jika terjadi kesalahan.
+- Mengelola branch untuk mengembangkan fitur baru secara paralel.
+
+---
+
+## 4. Mengapa Django Cocok untuk Pembelajaran?
+
+Django dipilih sebagai framework pembelajaran pengembangan perangkat lunak karena:
+- *Django sudah menyediakan banyak fitur bawaan seperti autentikasi, manajemen admin, dan ORM sehingga developer dapat fokus pada pengembangan logika bisnis.
+- *Memisahkan logika data, tampilan, dan kontrol sehingga mempermudah pemahaman dan pengelolaan kode.
+- Django memiliki dokumentasi yang sangat lengkap dan komunitas yang besar.
+
+---
+
+## 5. Mengapa Model di Django Disebut ORM?
+
+Model di Django disebut sebagai **ORM (Object-Relational Mapping)** karena Django secara otomatis mengubah objek Python menjadi tabel di database relasional. ORM memungkinkan developer bekerja dengan database menggunakan konsep object-oriented, tanpa perlu menulis kueri SQL secara langsung.
+
+--- 
