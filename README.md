@@ -1,3 +1,4 @@
+
 # Labventory
 
 **Labventory** is an e-commerce platform designed to streamline the procurement of laboratory equipment, supplies, and safety gear for educational institutions, research facilities, hospitals, and biotechnology companies. Our goal is to provide high-quality, reliable lab equipment with a seamless shopping experience.
@@ -93,7 +94,7 @@ Buat file `main.html` di dalam direktori template untuk menampilkan data dari vi
 
 Berikut adalah alur permintaan (request) dari klien hingga mendapatkan respon dari server Django:
 
-
+![R-R Model](https://github.com/user-attachments/assets/9262801b-fbdb-44cd-93c5-c28a3121030f)
 
 ### Penjelasan Alur:
 - **urls.py**: Memetakan URL yang diminta oleh klien ke fungsi yang sesuai di `views.py`.
