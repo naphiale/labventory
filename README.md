@@ -22,7 +22,7 @@ For questions, suggestions, or support, please contact us at [support@labventory
 
 ---
 
-# Menjawab Pertanyaan
+# Menjawab Pertanyaan Tugas 2
 
 ## 1. Langkah-Langkah Implementasi
 
@@ -126,4 +126,27 @@ Django dipilih sebagai framework pembelajaran pengembangan perangkat lunak karen
 
 Model di Django disebut sebagai **ORM (Object-Relational Mapping)** karena Django secara otomatis mengubah objek Python menjadi tabel di database relasional. ORM memungkinkan developer bekerja dengan database menggunakan konsep object-oriented, tanpa perlu menulis kueri SQL secara langsung.
 
---- 
+# Menjawab Pertanyaan Tugas 3
+
+**1. Mengapa Kita Memerlukan Data Delivery dalam Pengimplementasian Sebuah Platform?**
+
+Data delivery penting untuk memungkinkan komunikasi antara client dan server. Ini memastikan bahwa aplikasi dapat mengambil, mengirim, dan menampilkan data secara real-time, seperti hasil pencarian, status pengguna, atau konten dinamis lainnya. Tanpa mekanisme ini, platform tidak bisa berfungsi secara efektif dalam memberikan informasi yang diperbarui kepada pengguna.
+
+**2. Mana yang Lebih Baik antara XML dan JSON? Mengapa JSON Lebih Populer Dibandingkan XML?**
+
+- **JSON lebih baik dalam konteks web modern** karena lebih ringan dan mudah dibaca, baik oleh manusia maupun mesin. Parsing JSON juga lebih cepat karena lebih sederhana dibandingkan XML.
+- **JSON lebih populer** karena secara alami kompatibel dengan JavaScript, yang banyak digunakan di aplikasi web. Sementara XML lebih kompleks dan memerlukan lebih banyak resource untuk diproses.
+
+**3. Fungsi `is_valid()` pada Form Django**
+
+`is_valid()` digunakan untuk memvalidasi data yang dikirimkan melalui form. Jika data sesuai dengan aturan yang sudah ditentukan, fungsi ini mengembalikan `True`, dan `False` jika tidak. Fungsinya untuk memastikan integritas data sebelum disimpan ke database, mencegah input yang salah atau tidak lengkap.
+
+**4. Mengapa Kita Membutuhkan `csrf_token` pada Form di Django?**
+
+`csrf_token` melindungi aplikasi dari serangan **Cross-Site Request Forgery (CSRF)**, di mana penyerang mencoba memanipulasi request yang dikirim oleh pengguna. Jika tidak ada `csrf_token`, aplikasi rentan terhadap serangan yang bisa mengakibatkan tindakan berbahaya seperti perubahan data atau transaksi yang tidak sah.
+
+**5. Implementasi Checklist Step-by-Step**
+
+1. **Pahami Kebutuhan**: Mulai dengan memahami kebutuhan menampilkan data dalam format XML dan JSON.
+2. **Mengimplementasikan Fungsi Serialisasi di `views.py`**: Menulis fungsi `show_xml`, `show_json`, dan fungsi serupa untuk mengambil data dan mengonversinya ke format yang sesuai.
+3. **Tambahkan URL Patterns**: Menambahkan URL yang mengarah ke fungsi-fungsi tersebut di `urls.py`.

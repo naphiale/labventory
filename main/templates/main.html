@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Labventory</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Labventory</h3>
+
+<h5>NPM: </h5>
+<p>{{ npm }}</p>
+
+<h5>Name: </h5>
+<p>{{ name }}</p>
+
+<h5>Class: </h5>
+<p>{{ class }}</p>
+    
     <h1>Product List</h1>
     <ul>
         {% for product in products %}
@@ -16,5 +22,32 @@
         </li>
         {% endfor %}
     </ul>
-</body>
-</html>
+
+{% if not products %}
+<p>Belum ada produk yang ditambahkan.</p>
+{% else %}
+<table>
+  <tr>
+    <th>Nama Produk</th>
+    <th>Harga</th>
+    <th>Deskripsi</th>
+    <th>Rating</th>
+  </tr>
+
+  {% for product in products %}
+  <tr>
+    <td>{{ product.name }}</td>
+    <td>{{ product.price }}</td>
+    <td>{{ product.description }}</td>
+    <td>{{ product.rating }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+<br />
+
+<a href="{% url 'main:create_product' %}">
+  <button>Tambah Produk Baru</button>
+</a>
+{% endblock content %}

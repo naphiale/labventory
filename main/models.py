@@ -1,10 +1,12 @@
+import uuid
 from django.db import models
 
 class Product(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=255)
     price = models.IntegerField()
     description = models.TextField()
-    # rating = models.IntegerField()
+    rating = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name
@@ -12,3 +14,4 @@ class Product(models.Model):
     @property
     def is_highly_rated(self):
         return self.rating >= 4
+    
