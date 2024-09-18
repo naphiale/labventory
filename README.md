@@ -144,3 +144,7 @@ Data delivery penting untuk memungkinkan komunikasi antara client dan server. In
 1. **Pahami Kebutuhan**: Mulai dengan memahami kebutuhan menampilkan data dalam format XML dan JSON.
 2. **Mengimplementasikan Fungsi Serialisasi di `views.py`**: Menulis fungsi `show_xml`, `show_json`, dan fungsi serupa untuk mengambil data dan mengonversinya ke format yang sesuai.
 3. **Tambahkan URL Patterns**: Menambahkan URL yang mengarah ke fungsi-fungsi tersebut di `urls.py`.
+
+![ad7a24f6-58d9-48ac-9679-496b47acee46](https://github.com/user-attachments/assets/48f6266c-15d4-4893-bb75-e1dc375b66c2)
+
+![3f90b5bc-848a-4805-bcf4-69fc12c3da30](https://github.com/user-attachments/assets/83ef58b6-067e-4c53-b561-5f6e24216615)
