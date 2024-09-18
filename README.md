@@ -1,3 +1,4 @@
+
 # Labventory
 
 **Labventory** is an e-commerce platform designed to streamline the procurement of laboratory equipment, supplies, and safety gear for educational institutions, research facilities, hospitals, and biotechnology companies. Our goal is to provide high-quality, reliable lab equipment with a seamless shopping experience.
@@ -91,7 +92,7 @@ Buat file `main.html` di dalam direktori template untuk menampilkan data dari vi
 
 Berikut adalah alur permintaan (request) dari klien hingga mendapatkan respon dari server Django:
 
-
+![R-R Model](https://github.com/user-attachments/assets/9262801b-fbdb-44cd-93c5-c28a3121030f)
 
 ### Penjelasan Alur:
 - **urls.py**: Memetakan URL yang diminta oleh klien ke fungsi yang sesuai di `views.py`.
@@ -110,8 +111,8 @@ Git berfungsi sebagai sistem version control yang membantu:
 ## 4. Mengapa Django Cocok untuk Pembelajaran?
 
 Django dipilih sebagai framework pembelajaran pengembangan perangkat lunak karena:
-- *Django sudah menyediakan banyak fitur bawaan seperti autentikasi, manajemen admin, dan ORM sehingga developer dapat fokus pada pengembangan logika bisnis.
-- *Memisahkan logika data, tampilan, dan kontrol sehingga mempermudah pemahaman dan pengelolaan kode.
+- Django sudah menyediakan banyak fitur bawaan seperti autentikasi, manajemen admin, dan ORM sehingga developer dapat fokus pada pengembangan logika bisnis.
+- Memisahkan logika data, tampilan, dan kontrol sehingga mempermudah pemahaman dan pengelolaan kode.
 - Django memiliki dokumentasi yang sangat lengkap dan komunitas yang besar.
 
 ## 5. Mengapa Model di Django Disebut ORM?
