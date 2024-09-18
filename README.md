@@ -87,8 +87,6 @@ def show_main(request):
 ### Langkah 7: Menyusun Template HTML
 Buat file `main.html` di dalam direktori template untuk menampilkan data dari views.
 
----
-
 ## 2. Alur Request-Response di Django
 
 Berikut adalah alur permintaan (request) dari klien hingga mendapatkan respon dari server Django:
@@ -101,8 +99,6 @@ Berikut adalah alur permintaan (request) dari klien hingga mendapatkan respon da
 - **models.py**: Berfungsi untuk menghubungkan Django dengan database, mengelola data yang dibutuhkan oleh views.
 - **HTML (Template)**: Menampilkan data yang telah diproses oleh views kepada klien.
 
----
-
 ## 3. Fungsi Git dalam Pengembangan Perangkat Lunak
 
 Git berfungsi sebagai sistem version control yang membantu:
@@ -111,8 +107,6 @@ Git berfungsi sebagai sistem version control yang membantu:
 - Mengembalikan versi sebelumnya dari kode jika terjadi kesalahan.
 - Mengelola branch untuk mengembangkan fitur baru secara paralel.
 
----
-
 ## 4. Mengapa Django Cocok untuk Pembelajaran?
 
 Django dipilih sebagai framework pembelajaran pengembangan perangkat lunak karena:
@@ -120,11 +114,11 @@ Django dipilih sebagai framework pembelajaran pengembangan perangkat lunak karen
 - *Memisahkan logika data, tampilan, dan kontrol sehingga mempermudah pemahaman dan pengelolaan kode.
 - Django memiliki dokumentasi yang sangat lengkap dan komunitas yang besar.
 
----
-
 ## 5. Mengapa Model di Django Disebut ORM?
 
 Model di Django disebut sebagai **ORM (Object-Relational Mapping)** karena Django secara otomatis mengubah objek Python menjadi tabel di database relasional. ORM memungkinkan developer bekerja dengan database menggunakan konsep object-oriented, tanpa perlu menulis kueri SQL secara langsung.
+
+---
 
 # Menjawab Pertanyaan Tugas 3
 
