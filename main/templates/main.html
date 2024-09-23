@@ -14,7 +14,7 @@
     
     <h1>Product List</h1>
     <ul>
-        {% for product in products %}
+        {% for product in product %}
         <li>
             <h2>{{ product.name }}</h2>
             <p>Price: Rp {{ product.price }}</p>
@@ -23,7 +23,7 @@
         {% endfor %}
     </ul>
 
-{% if not products %}
+{% if not product %}
 <p>Belum ada produk yang ditambahkan.</p>
 {% else %}
 <table>
@@ -34,7 +34,7 @@
     <th>Rating</th>
   </tr>
 
-  {% for product in products %}
+  {% for product in product %}
   <tr>
     <td>{{ product.name }}</td>
     <td>{{ product.price }}</td>
@@ -50,4 +50,11 @@
 <a href="{% url 'main:create_product' %}">
   <button>Tambah Produk Baru</button>
 </a>
+
+<a href="{% url 'main:logout' %}">
+  <button>Logout</button>
+</a>
+
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+
 {% endblock content %}
