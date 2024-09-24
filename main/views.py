@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import render, redirect
 from main.forms import ProductForm
 from main.models import Product
@@ -9,41 +10,22 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
-import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 @login_required(login_url='/login')
+
 def show_main(request):
     # Data produk dalam bentuk list of dictionaries
-    product = Product.objects.all()
-
-    product = [
-        {
-            'name': 'Microscope',
-            'price': 2000000,
-            'description': 'High-quality microscope suitable for research and education purposes.',
-            'rating': 4
-        },
-        {
-            'name': 'Termometer',
-            'price': 5000000,
-            'description': 'High-speed centrifuge for separating fluids and gases based on density.',
-            'rating': 5
-        },
-        {
-            'name': 'Beaker',
-            'price': 7000000,
-            'description': 'Compact autoclave for sterilization in laboratories.',
-            'rating': 4
-        },
-    ]
+    product = Product.objects.filter(user=request.user)
     
     # Context untuk dikirimkan ke template
     context = {
-        'npm': '2306224556',
+        'app name' : 'Labventory',
         'name': request.user.username,
+        'npm': '2306224556',
         'class': 'PBP F',
+        
         'product': product,
         'last_login': request.COOKIES['last_login'],
     }

@@ -4,18 +4,11 @@ from .models import Product
 
 class ProductModelTest(TestCase):
     def setUp(self):
-        # Set up two test products
+        # Set up two test product
         Product.objects.create(
             name="Microscope X200",
             price=2000000,
             description="High-quality microscope suitable for research and education purposes.",
-            rating=4
-        )
-        Product.objects.create(
-            name="Centrifuge 3000 RPM",
-            price=5000000,
-            description="High-speed centrifuge for separating fluids and gases based on density.",
-            rating=5
         )
 
     def test_product_str(self):
@@ -28,11 +21,6 @@ class ProductModelTest(TestCase):
         product = Product.objects.get(name="Centrifuge 3000 RPM")
         self.assertEqual(product.formatted_price, "Rp 5,000,000")
 
-    def test_product_rating_stars(self):
-        # Test the rating_stars property
-        product = Product.objects.get(name="Microscope X200")
-        self.assertEqual(product.rating_stars, "⭐⭐⭐⭐")
-
 class ProductViewTest(TestCase):
     def setUp(self):
         # Create a test product for the view test
@@ -40,7 +28,6 @@ class ProductViewTest(TestCase):
             name="Autoclave Sterilizer",
             price=7000000,
             description="Compact autoclave for sterilization in laboratories.",
-            rating=4
         )
 
     def test_show_main_view(self):

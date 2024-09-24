@@ -145,3 +145,32 @@ Data delivery penting untuk memungkinkan komunikasi antara client dan server. In
 1. **Pahami Kebutuhan**: Mulai dengan memahami kebutuhan menampilkan data dalam format XML dan JSON.
 2. **Mengimplementasikan Fungsi Serialisasi di `views.py`**: Menulis fungsi `show_xml`, `show_json`, dan fungsi serupa untuk mengambil data dan mengonversinya ke format yang sesuai.
 3. **Tambahkan URL Patterns**: Menambahkan URL yang mengarah ke fungsi-fungsi tersebut di `urls.py`.
+
+---
+
+# Menjawab Pertanyaan Tugas 4
+
+### 1. Apa perbedaan antara `HttpResponseRedirect()` dan `redirect()`?
+`HttpResponseRedirect()` adalah kelas dasar untuk membuat objek respons yang mengalihkan ke URL lain. Di sisi lain, `redirect()` adalah fungsi pembungkus (wrapper) yang lebih tinggi yang menyederhanakan pembuatan pengalihan. `redirect()` secara otomatis menangani URL dan juga dapat menerima objek model, mengembalikan pengalihan ke detail model tersebut. Penggunaan `redirect()` lebih umum karena lebih ringkas dan lebih mudah dibaca.
+
+### 2. Jelaskan cara kerja penghubungan model Product dengan User!
+Penghubungan model `Product` dengan `User` dilakukan dengan menambahkan foreign key di model `Product`. Misalnya, jika kita memiliki model `Product`, kita dapat menambahkan field `user` yang merujuk ke model `User`. Ini memungkinkan setiap produk memiliki pemilik yang dapat diidentifikasi. Contoh implementasinya seperti ini:
+
+```python
+from django.contrib.auth.models import User
+from django.db import models
+
+class Product(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # Field lain untuk model Product
+```
+
+Dengan cara ini, kita dapat dengan mudah melacak produk yang dibuat oleh pengguna tertentu.
+
+### 3. Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login?
+Authentication adalah proses verifikasi identitas pengguna, memastikan bahwa pengguna yang masuk adalah mereka yang mereka klaim. Authorization, di sisi lain, adalah proses menentukan hak akses yang dimiliki pengguna setelah mereka berhasil diautentikasi. Saat pengguna login, sistem memverifikasi kredensial mereka (authentication), dan setelah itu menentukan apa yang boleh mereka lakukan (authorization) berdasarkan peran atau izin yang diberikan kepada mereka.
+
+### 4. Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?
+Django mengingat pengguna yang telah login dengan menggunakan session. Ketika pengguna berhasil login, Django menyimpan informasi sesi di server dan mengirimkan cookie ke browser pengguna. Cookie ini berisi ID sesi yang digunakan untuk mengidentifikasi pengguna di setiap permintaan berikutnya. Selain itu, cookies dapat digunakan untuk menyimpan informasi lain seperti preferensi pengguna atau data login terakhir. Namun, tidak semua cookies aman; cookies yang menyimpan data sensitif harus dienkripsi dan hanya boleh diakses melalui HTTPS untuk mencegah potensi penyalahgunaan.
+
+### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step.

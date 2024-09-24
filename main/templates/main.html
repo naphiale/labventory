@@ -1,60 +1,56 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h3>Labventory</h3>
+  <h3>{{ app_nama }}</h3>
 
-<h5>NPM: </h5>
-<p>{{ npm }}</p>
+  <div>
+    <h5>Name: </h5>
+    <p>{{ name }}</p>
 
-<h5>Name: </h5>
-<p>{{ name }}</p>
+    <h5>NPM: </h5>
+    <p>{{ npm }}</p>
 
-<h5>Class: </h5>
-<p>{{ class }}</p>
-    
-    <h1>Product List</h1>
-    <ul>
-        {% for product in product %}
-        <li>
-            <h2>{{ product.name }}</h2>
-            <p>Price: Rp {{ product.price }}</p>
-            <p>Description: {{ product.description }}</p>
-        </li>
+    <h5>Class: </h5>
+    <p>{{ class }}</p>
+  </div>
+
+  <h1>Product List</h1>
+
+  {% if product %}
+    <table>
+      <thead>
+        <tr>
+          <th>Nama Produk</th>
+          <th>Harga</th>
+          <th>Deskripsi</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in product %}
+        <tr>
+          <td>{{ item.name }}</td>
+          <td>Rp {{ item.price }}</td>
+          <td>{{ item.description }}</td>
+        </tr>
         {% endfor %}
-    </ul>
+      </tbody>
+    </table>
+  {% else %}
+    <p>Belum ada produk yang ditambahkan.</p>
+  {% endif %}
 
-{% if not product %}
-<p>Belum ada produk yang ditambahkan.</p>
-{% else %}
-<table>
-  <tr>
-    <th>Nama Produk</th>
-    <th>Harga</th>
-    <th>Deskripsi</th>
-    <th>Rating</th>
-  </tr>
+  <br />
 
-  {% for product in product %}
-  <tr>
-    <td>{{ product.name }}</td>
-    <td>{{ product.price }}</td>
-    <td>{{ product.description }}</td>
-    <td>{{ product.rating }}</td>
-  </tr>
-  {% endfor %}
-</table>
-{% endif %}
+  <div class="actions">
+    <a href="{% url 'main:create_product' %}">
+      <button>Tambah Produk Baru</button>
+    </a>
 
-<br />
+    <a href="{% url 'main:logout' %}">
+      <button>Logout</button>
+    </a>
+  </div>
 
-<a href="{% url 'main:create_product' %}">
-  <button>Tambah Produk Baru</button>
-</a>
-
-<a href="{% url 'main:logout' %}">
-  <button>Logout</button>
-</a>
-
-<h5>Sesi terakhir login: {{ last_login }}</h5>
+  <h5>Sesi terakhir login: {{ last_login }}</h5>
 
 {% endblock content %}
