@@ -174,6 +174,30 @@ Authentication adalah proses verifikasi identitas pengguna, memastikan bahwa pen
 Django mengingat pengguna yang telah login dengan menggunakan session. Ketika pengguna berhasil login, Django menyimpan informasi sesi di server dan mengirimkan cookie ke browser pengguna. Cookie ini berisi ID sesi yang digunakan untuk mengidentifikasi pengguna di setiap permintaan berikutnya. Selain itu, cookies dapat digunakan untuk menyimpan informasi lain seperti preferensi pengguna atau data login terakhir. Namun, tidak semua cookies aman; cookies yang menyimpan data sensitif harus dienkripsi dan hanya boleh diakses melalui HTTPS untuk mencegah potensi penyalahgunaan.
 
 ## 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step.
+Berikut adalah langkah-langkah untuk membuat fungsi-fungsi autentikasi dan menggunakan data dari cookies, serta menghubungkan model dengan user:
+
+### 1. **Membuat Fungsi dan Form Registrasi**
+   - **Form Registrasi**: Buat form menggunakan `UserCreationForm` bawaan Django yang memudahkan pembuatan user baru. Lalu tambahkan logika di view untuk menangani input form.
+   - **URL Registrasi**: Tambahkan path untuk registrasi di `urls.py`
+
+### 2. **Membuat Fungsi Login**
+   - Gunakan `authenticate()` dan `login()` dari Django untuk memverifikasi kredensial pengguna, lalu login.
+
+### 3. **Membuat Fungsi Logout**
+   - Gunakan `logout()` untuk menghapus session pengguna.
+   - **URL Logout**: Tambahkan path untuk logout di `urls.py`:
+
+### 4. **Merestriksi Akses Halaman Main**
+   - Gunakan dekorator `login_required` untuk memastikan pengguna hanya bisa mengakses halaman jika mereka telah login.
+   - **Login URL**: Jangan lupa untuk menambahkan URL login di `settings.py`:
+
+### 5. **Menggunakan Data Dari Cookies**
+   - Saat pengguna berhasil login, tambahkan cookie `last_login` untuk mencatat kapan terakhir kali mereka login.
+   - **Menampilkan Data dari Cookies**: Di halaman `main`, ambil cookie `last_login` untuk ditampilkan.
+
+### 6. **Menghubungkan Model MoodEntry dengan User**
+   - Tambahkan foreign key di model `MoodEntry` untuk mengaitkan mood dengan user yang login.
+   - Saat menyimpan data, pastikan mood yang dibuat terkait dengan user yang sedang login.
 
 ![user2](https://github.com/user-attachments/assets/361a5af6-1e3f-41f5-9946-068f2f914abb)
 ![user1](https://github.com/user-attachments/assets/28efaf33-ace3-44d7-996f-9c787e77fb75)
