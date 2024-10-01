@@ -201,3 +201,49 @@ Berikut adalah langkah-langkah untuk membuat fungsi-fungsi autentikasi dan mengg
 
 ![user2](https://github.com/user-attachments/assets/361a5af6-1e3f-41f5-9946-068f2f914abb)
 ![user1](https://github.com/user-attachments/assets/28efaf33-ace3-44d7-996f-9c787e77fb75)
+
+# Menjawab Pertanyaan Tugas 5
+
+### 1. Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+
+Urutan prioritas pengambilan CSS selector (yang dikenal dengan istilah **Specificity**) adalah sebagai berikut:
+
+1. **Inline Styles**: CSS yang ditulis langsung di elemen HTML (misalnya, `<div style="color: red;">`) memiliki prioritas tertinggi.
+2. **ID Selector**: Selector yang menggunakan ID (misalnya, `#my-id`) memiliki prioritas lebih tinggi dibandingkan class atau tag.
+3. **Class, Attribute, dan Pseudo-class Selector**: Selector yang menggunakan class (misalnya, `.my-class`), attribute (misalnya, `[type="text"]`), atau pseudo-class (misalnya, `:hover`) memiliki prioritas yang lebih rendah dari ID.
+4. **Tag Selector**: Selector yang menggunakan tag HTML (misalnya, `div`, `p`) memiliki prioritas paling rendah.
+5. **Universal Selector**: Selector yang menggunakan asterisk (`*`) memiliki prioritas terendah dan akan mengambil semua elemen.
+
+Dengan mengetahui urutan ini, kita dapat mengelola styling dengan lebih efektif.
+
+### 2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web?
+
+Responsive design adalah konsep yang sangat penting karena membantu menciptakan pengalaman pengguna yang baik di berbagai perangkat. Dalam dunia saat ini, orang mengakses web menggunakan perangkat yang berbeda seperti ponsel, tablet, dan desktop. Jika sebuah aplikasi web tidak responsif, pengguna akan mengalami kesulitan dalam menavigasi, yang dapat mengurangi kepuasan dan membuat mereka meninggalkan situs.
+
+Contoh aplikasi yang menerapkan responsive design dengan baik adalah **Twitter** dan **Instagram**. Keduanya menyesuaikan konten dan tata letak berdasarkan ukuran layar, sehingga pengguna mendapatkan pengalaman yang optimal di perangkat apa pun.
+
+Sebaliknya, contoh aplikasi yang belum menerapkan responsive design adalah banyak situs web perusahaan lama yang hanya terlihat baik di desktop dan sangat sulit digunakan di perangkat mobile.
+
+### 3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+
+- **Margin**: Ruang di luar elemen yang menciptakan jarak antara elemen tersebut dan elemen lainnya. Margin tidak mempengaruhi ukuran elemen itu sendiri. Kita dapat mengatur margin dengan menggunakan properti CSS seperti `margin: 20px;`.
+
+- **Border**: Garis yang mengelilingi elemen, yang dapat kita sesuaikan ketebalan, warna, dan gayanya. Border mempengaruhi ukuran total elemen. Contoh implementasi: `border: 1px solid black;`.
+
+- **Padding**: Ruang di dalam elemen, antara konten dan border. Padding meningkatkan ukuran elemen, karena menambah ruang di dalamnya. Kita dapat mengatur padding dengan menggunakan `padding: 10px;`.
+
+### 4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+
+**Flexbox**: Flexbox adalah model layout satu dimensi yang memungkinkan kita untuk menyusun elemen dalam satu baris (horizontal) atau kolom (vertikal). Flexbox sangat berguna untuk menciptakan layout yang responsif dan dapat menyesuaikan ukuran konten. Dengan Flexbox, kita dapat dengan mudah mengatur perataan, arah, dan urutan elemen dalam kontainer.
+
+**Grid Layout**: Grid adalah model layout dua dimensi yang memungkinkan kita untuk menyusun elemen dalam baris dan kolom. Grid sangat berguna untuk membuat desain yang lebih kompleks dan teratur. Dengan Grid, kita dapat mengontrol ukuran kolom dan baris, serta menciptakan tata letak yang lebih terstruktur.
+
+### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+
+1. **Implementasi Fungsi CRUD**: Menggunakan Django, saya membuat views untuk mengedit dan menghapus produk. Saya juga memastikan data ditangani dengan aman dengan menambahkan konfirmasi saat menghapus.
+
+2. **Desain Halaman**: Saya memilih untuk menggunakan Bootstrap untuk kemudahan responsivitas dan konsistensi. Saya menulis CSS kustom untuk menyesuaikan tampilan dengan kebutuhan aplikasi.
+
+3. **Membuat Halaman Daftar Produk**: Saya membuat logika untuk memeriksa apakah ada produk yang tersimpan. Jika tidak ada, menampilkan gambar dan pesan. Jika ada, menampilkan produk dalam format kartu yang responsif.
+
+4. **Membuat Navbar**: Saya mendesain navbar responsif dengan menggunakan kelas Bootstrap dan beberapa logika JavaScript untuk menampilkan menu hamburger di perangkat mobile.
