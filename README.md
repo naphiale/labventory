@@ -123,24 +123,24 @@ Model di Django disebut sebagai **ORM (Object-Relational Mapping)** karena Djang
 
 # Menjawab Pertanyaan Tugas 3
 
-**1. Mengapa Kita Memerlukan Data Delivery dalam Pengimplementasian Sebuah Platform?**
+## 1. Mengapa Kita Memerlukan Data Delivery dalam Pengimplementasian Sebuah Platform?**
 
 Data delivery penting untuk memungkinkan komunikasi antara client dan server. Ini memastikan bahwa aplikasi dapat mengambil, mengirim, dan menampilkan data secara real-time, seperti hasil pencarian, status pengguna, atau konten dinamis lainnya. Tanpa mekanisme ini, platform tidak bisa berfungsi secara efektif dalam memberikan informasi yang diperbarui kepada pengguna.
 
-**2. Mana yang Lebih Baik antara XML dan JSON? Mengapa JSON Lebih Populer Dibandingkan XML?**
+## 2. Mana yang Lebih Baik antara XML dan JSON? Mengapa JSON Lebih Populer Dibandingkan XML?**
 
 - **JSON lebih baik dalam konteks web modern** karena lebih ringan dan mudah dibaca, baik oleh manusia maupun mesin. Parsing JSON juga lebih cepat karena lebih sederhana dibandingkan XML.
 - **JSON lebih populer** karena secara alami kompatibel dengan JavaScript, yang banyak digunakan di aplikasi web. Sementara XML lebih kompleks dan memerlukan lebih banyak resource untuk diproses.
 
-**3. Fungsi `is_valid()` pada Form Django**
+## 3. Fungsi `is_valid()` pada Form Django**
 
 `is_valid()` digunakan untuk memvalidasi data yang dikirimkan melalui form. Jika data sesuai dengan aturan yang sudah ditentukan, fungsi ini mengembalikan `True`, dan `False` jika tidak. Fungsinya untuk memastikan integritas data sebelum disimpan ke database, mencegah input yang salah atau tidak lengkap.
 
-**4. Mengapa Kita Membutuhkan `csrf_token` pada Form di Django?**
+## 4. Mengapa Kita Membutuhkan `csrf_token` pada Form di Django?**
 
 `csrf_token` melindungi aplikasi dari serangan **Cross-Site Request Forgery (CSRF)**, di mana penyerang mencoba memanipulasi request yang dikirim oleh pengguna. Jika tidak ada `csrf_token`, aplikasi rentan terhadap serangan yang bisa mengakibatkan tindakan berbahaya seperti perubahan data atau transaksi yang tidak sah.
 
-**5. Implementasi Checklist Step-by-Step**
+## 5. Implementasi Checklist Step-by-Step**
 
 1. **Pahami Kebutuhan**: Mulai dengan memahami kebutuhan menampilkan data dalam format XML dan JSON.
 2. **Mengimplementasikan Fungsi Serialisasi di `views.py`**: Menulis fungsi `show_xml`, `show_json`, dan fungsi serupa untuk mengambil data dan mengonversinya ke format yang sesuai.
@@ -150,10 +150,10 @@ Data delivery penting untuk memungkinkan komunikasi antara client dan server. In
 
 # Menjawab Pertanyaan Tugas 4
 
-### 1. Apa perbedaan antara `HttpResponseRedirect()` dan `redirect()`?
+## 1. Apa perbedaan antara `HttpResponseRedirect()` dan `redirect()`?
 `HttpResponseRedirect()` adalah kelas dasar untuk membuat objek respons yang mengalihkan ke URL lain. Di sisi lain, `redirect()` adalah fungsi pembungkus (wrapper) yang lebih tinggi yang menyederhanakan pembuatan pengalihan. `redirect()` secara otomatis menangani URL dan juga dapat menerima objek model, mengembalikan pengalihan ke detail model tersebut. Penggunaan `redirect()` lebih umum karena lebih ringkas dan lebih mudah dibaca.
 
-### 2. Jelaskan cara kerja penghubungan model Product dengan User!
+## 2. Jelaskan cara kerja penghubungan model Product dengan User!
 Penghubungan model `Product` dengan `User` dilakukan dengan menambahkan foreign key di model `Product`. Misalnya, jika kita memiliki model `Product`, kita dapat menambahkan field `user` yang merujuk ke model `User`. Ini memungkinkan setiap produk memiliki pemilik yang dapat diidentifikasi. Contoh implementasinya seperti ini:
 
 ```python
@@ -167,10 +167,37 @@ class Product(models.Model):
 
 Dengan cara ini, kita dapat dengan mudah melacak produk yang dibuat oleh pengguna tertentu.
 
-### 3. Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login?
+## 3. Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login?
 Authentication adalah proses verifikasi identitas pengguna, memastikan bahwa pengguna yang masuk adalah mereka yang mereka klaim. Authorization, di sisi lain, adalah proses menentukan hak akses yang dimiliki pengguna setelah mereka berhasil diautentikasi. Saat pengguna login, sistem memverifikasi kredensial mereka (authentication), dan setelah itu menentukan apa yang boleh mereka lakukan (authorization) berdasarkan peran atau izin yang diberikan kepada mereka.
 
-### 4. Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?
+## 4. Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?
 Django mengingat pengguna yang telah login dengan menggunakan session. Ketika pengguna berhasil login, Django menyimpan informasi sesi di server dan mengirimkan cookie ke browser pengguna. Cookie ini berisi ID sesi yang digunakan untuk mengidentifikasi pengguna di setiap permintaan berikutnya. Selain itu, cookies dapat digunakan untuk menyimpan informasi lain seperti preferensi pengguna atau data login terakhir. Namun, tidak semua cookies aman; cookies yang menyimpan data sensitif harus dienkripsi dan hanya boleh diakses melalui HTTPS untuk mencegah potensi penyalahgunaan.
 
-### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step.
+## 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step.
+Berikut adalah langkah-langkah untuk membuat fungsi-fungsi autentikasi dan menggunakan data dari cookies, serta menghubungkan model dengan user:
+
+### 1. **Membuat Fungsi dan Form Registrasi**
+   - **Form Registrasi**: Buat form menggunakan `UserCreationForm` bawaan Django yang memudahkan pembuatan user baru. Lalu tambahkan logika di view untuk menangani input form.
+   - **URL Registrasi**: Tambahkan path untuk registrasi di `urls.py`
+
+### 2. **Membuat Fungsi Login**
+   - Gunakan `authenticate()` dan `login()` dari Django untuk memverifikasi kredensial pengguna, lalu login.
+
+### 3. **Membuat Fungsi Logout**
+   - Gunakan `logout()` untuk menghapus session pengguna.
+   - **URL Logout**: Tambahkan path untuk logout di `urls.py`:
+
+### 4. **Merestriksi Akses Halaman Main**
+   - Gunakan dekorator `login_required` untuk memastikan pengguna hanya bisa mengakses halaman jika mereka telah login.
+   - **Login URL**: Jangan lupa untuk menambahkan URL login di `settings.py`:
+
+### 5. **Menggunakan Data Dari Cookies**
+   - Saat pengguna berhasil login, tambahkan cookie `last_login` untuk mencatat kapan terakhir kali mereka login.
+   - **Menampilkan Data dari Cookies**: Di halaman `main`, ambil cookie `last_login` untuk ditampilkan.
+
+### 6. **Menghubungkan Model MoodEntry dengan User**
+   - Tambahkan foreign key di model `MoodEntry` untuk mengaitkan mood dengan user yang login.
+   - Saat menyimpan data, pastikan mood yang dibuat terkait dengan user yang sedang login.
+
+![user2](https://github.com/user-attachments/assets/361a5af6-1e3f-41f5-9946-068f2f914abb)
+![user1](https://github.com/user-attachments/assets/28efaf33-ace3-44d7-996f-9c787e77fb75)
