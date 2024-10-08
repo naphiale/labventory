@@ -202,6 +202,8 @@ Berikut adalah langkah-langkah untuk membuat fungsi-fungsi autentikasi dan mengg
 ![user2](https://github.com/user-attachments/assets/361a5af6-1e3f-41f5-9946-068f2f914abb)
 ![user1](https://github.com/user-attachments/assets/28efaf33-ace3-44d7-996f-9c787e77fb75)
 
+---
+
 # Menjawab Pertanyaan Tugas 5
 
 ### 1. Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
@@ -247,3 +249,28 @@ Sebaliknya, contoh aplikasi yang belum menerapkan responsive design adalah banya
 3. **Membuat Halaman Daftar Produk**: Saya membuat logika untuk memeriksa apakah ada produk yang tersimpan. Jika tidak ada, menampilkan gambar dan pesan. Jika ada, menampilkan produk dalam format kartu yang responsif.
 
 4. **Membuat Navbar**: Saya mendesain navbar responsif dengan menggunakan kelas Bootstrap dan beberapa logika JavaScript untuk menampilkan menu hamburger di perangkat mobile.
+
+
+---
+
+# Menjawab Pertanyaan Tugas 6
+
+### Manfaat Penggunaan JavaScript dalam Pengembangan Aplikasi Web:
+1. **Interaktivitas**: Membuat elemen dinamis dan interaktif pada halaman web.
+2. **Asynchronous Operations (AJAX)**: Mengambil data dari server tanpa refresh.
+3. **Cross-platform**: Dapat berjalan di berbagai platform dan browser.
+4. **Back-end Development**: Dapat digunakan untuk back-end dengan Node.js.
+5. **Ekosistem Kuat**: Mendukung banyak framework seperti React, Vue.js, dan Angular.
+
+### Fungsi `await` dalam `fetch()` dan Akibat Jika Tidak Menggunakan:
+- **Fungsi**: `await` menunggu hasil `fetch()` sebelum melanjutkan eksekusi.
+- **Jika tidak menggunakan `await`**, kita mendapatkan **Promise** yang belum selesai (pending), sehingga data belum bisa digunakan.
+
+### Alasan Menggunakan `csrf_exempt` pada AJAX POST:
+`csrf_exempt` digunakan untuk menonaktifkan proteksi CSRF pada view ketika AJAX POST tidak menyertakan token CSRF yang valid. Ini mencegah request ditolak oleh Django.
+
+### Mengapa Pembersihan Data Dilakukan di Backend:
+1. **Keamanan**: Backend lebih aman dari manipulasi.
+2. **Konsistensi**: Memastikan data selalu valid.
+3. **Kontrol Penuh**: Backend mengontrol data yang diproses.
+4. **Reliability**: Menghindari risiko dari pengguna yang menonaktifkan JavaScript di browser.
