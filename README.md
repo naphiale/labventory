@@ -195,9 +195,9 @@ Berikut adalah langkah-langkah untuk membuat fungsi-fungsi autentikasi dan mengg
    - Saat pengguna berhasil login, tambahkan cookie `last_login` untuk mencatat kapan terakhir kali mereka login.
    - **Menampilkan Data dari Cookies**: Di halaman `main`, ambil cookie `last_login` untuk ditampilkan.
 
-### 6. **Menghubungkan Model MoodEntry dengan User**
-   - Tambahkan foreign key di model `MoodEntry` untuk mengaitkan mood dengan user yang login.
-   - Saat menyimpan data, pastikan mood yang dibuat terkait dengan user yang sedang login.
+### 6. **Menghubungkan Model ProductEntry dengan User**
+   - Tambahkan foreign key di model `ProductEntry` untuk mengaitkan product dengan user yang login.
+   - Saat menyimpan data, pastikan product yang dibuat terkait dengan user yang sedang login.
 
 ![user2](https://github.com/user-attachments/assets/361a5af6-1e3f-41f5-9946-068f2f914abb)
 ![user1](https://github.com/user-attachments/assets/28efaf33-ace3-44d7-996f-9c787e77fb75)
@@ -255,22 +255,45 @@ Sebaliknya, contoh aplikasi yang belum menerapkan responsive design adalah banya
 
 # Menjawab Pertanyaan Tugas 6
 
-### Manfaat Penggunaan JavaScript dalam Pengembangan Aplikasi Web:
+### 1. Manfaat Penggunaan JavaScript dalam Pengembangan Aplikasi Web:
 1. **Interaktivitas**: Membuat elemen dinamis dan interaktif pada halaman web.
 2. **Asynchronous Operations (AJAX)**: Mengambil data dari server tanpa refresh.
 3. **Cross-platform**: Dapat berjalan di berbagai platform dan browser.
 4. **Back-end Development**: Dapat digunakan untuk back-end dengan Node.js.
 5. **Ekosistem Kuat**: Mendukung banyak framework seperti React, Vue.js, dan Angular.
 
-### Fungsi `await` dalam `fetch()` dan Akibat Jika Tidak Menggunakan:
+### 2. Fungsi `await` dalam `fetch()` dan Akibat Jika Tidak Menggunakan:
 - **Fungsi**: `await` menunggu hasil `fetch()` sebelum melanjutkan eksekusi.
 - **Jika tidak menggunakan `await`**, kita mendapatkan **Promise** yang belum selesai (pending), sehingga data belum bisa digunakan.
 
-### Alasan Menggunakan `csrf_exempt` pada AJAX POST:
+### 3. Alasan Menggunakan `csrf_exempt` pada AJAX POST:
 `csrf_exempt` digunakan untuk menonaktifkan proteksi CSRF pada view ketika AJAX POST tidak menyertakan token CSRF yang valid. Ini mencegah request ditolak oleh Django.
 
-### Mengapa Pembersihan Data Dilakukan di Backend:
+### 4. Mengapa Pembersihan Data Dilakukan di Backend:
 1. **Keamanan**: Backend lebih aman dari manipulasi.
 2. **Konsistensi**: Memastikan data selalu valid.
 3. **Kontrol Penuh**: Backend mengontrol data yang diproses.
 4. **Reliability**: Menghindari risiko dari pengguna yang menonaktifkan JavaScript di browser.
+
+### 5. Step by Step
+1. **Views:**
+   - Impor `csrf_exempt` dan `require_POST` di `views.py`.
+   - Buat fungsi `add_product_entry_ajax` untuk menyimpan data product dari request POST.
+
+2. **Routing:**
+   - Tambah path di `urls.py` untuk fungsi `add_product_entry_ajax`.
+
+3. **Frontend:**
+   - Hapus tampilan lama product di `main.html`.
+   - Tambah `<div id="product_entry_cards"></div>` di tempat yang sama.
+   - Buat fungsi `getProductEntries` dan `refreshProductEntries` di `<script>` untuk fetch data product dengan API.
+
+4. **Modal & AJAX:**
+   - Tambah modal Tailwind untuk form input product.
+   - Buat fungsi `addProductEntry()` di `<script>` untuk kirim data form menggunakan `fetch()`.
+
+5. **Event Listener:**
+   - Tambah event listener untuk submit form modal dengan AJAX.
+
+6. **XSS Protection:**
+   - Gunakan `strip_tags` di `views.py` untuk mencegah XSS.
